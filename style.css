@@ -2,7 +2,22 @@
   font-family: navfont;
   src: url(Fonts/BRITANIC.TTF);
 }
-
+@font-face {
+  font-family: indexfont;
+  src: url(Fonts/tobod.OTF);
+}
+@font-face {
+  font-family: fechafont;
+  src: url(Fonts/qiko.OTF);
+}
+@font-face {
+  font-family: atletas;
+  src: url(Fonts/babynames.ttF);
+}
+@font-face {
+  font-family: fontpalab;
+  src: url(Fonts/palab.ttf);
+}
 body{
 	background-color: #abb1d9;
 }
@@ -78,4 +93,119 @@ nav a:hover{
 	background-color: rgb(2,13,67);
 	color:white;
 	text-decoration-color: white;
+}
+.index-foto2{
+	display: inline;
+	width: 300px;
+	height: 280px;
+	opacity: 0.35;
+	margin-left: 400px;
+	margin-top: 69px;
+
+}
+.index-foto1{
+	display: inline;
+	width: 300px;
+	height: 280px;
+	margin-left: 170px;
+	margin-top: 69px;
+	opacity: 0.35;
+}
+.index-foto-box{
+	text-align: center;
+	display: block;
+}
+.index-main-text-box{
+	position: absolute;
+	left: 200px;
+	margin-top: 40px;
+	top: 310px;
+}
+.index-main-text{
+
+	font-family: indexfont;
+	font-size: 33pt;
+	letter-spacing: 3px;
+	display: inline;
+}
+.index-alt-text{
+	font-family: fechafont;
+	font-size: 35pt;
+	letter-spacing: 4px;
+	display: inline;
+	background-color:  #ffe6ff;
+	border-style: dotted;
+	border-width: 6px;
+	border-color: black;
+	padding: 3px;
+	opacity: 0.9;
+	border-radius: 25px;
+
+}
+.footer-box{
+	width: 100%
+	height: 100px;
+	display: block;
+	margin-bottom: -10px;
+	float: none;
+}
+.footer-box p{
+	background-color: #002966;
+	padding: 40px;
+	margin-right: -7px;
+	color:white;
+	margin-left: -7px;
+	margin-bottom: -80px;
+}
+.icon-atleta{
+	width: 100px;
+	height: 100px;
+	margin-top: 50px;
+	
+}
+.menu-atletas-box{
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+}
+#icon-atleta-2{
+	margin-left: 100px;
+	margin-right: 100px;
+}
+.atletas-main-text-box{
+	width: 100%;
+	text-align: center;
+}
+.atletas-main-text{
+	font-family: atletas;
+	font-size: 80pt;
+	margin-top: 5px;
+	margin-bottom: -20px;
+}
+.posicionador{
+	margin-top: 400px;
+	background-color: yellow;
+}
+.addatleta, .editatleta, .delatleta{
+	display: none;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px; 	
+}
+.addatleta table, .editatleta table, .delatleta table{
+	display: inline-block;
+	text-align: left;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 70px;
+	padding-left: 70px;
+	background-color: rgb(201, 191, 196);
+}
+.addatleta-tit-sec{
+	text-align: center;
+	font-family: fontpalab;
+	font-size: 15pt;
 }
