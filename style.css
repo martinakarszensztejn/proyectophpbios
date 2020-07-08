@@ -157,11 +157,15 @@ nav a:hover{
 	margin-left: -7px;
 	margin-bottom: -80px;
 }
-.icon-atleta{
+.icon-atleta, .icon-disciplina{
 	width: 100px;
 	height: 100px;
 	margin-top: 50px;
 	
+}
+.icon-disciplina{
+	margin-left:50px;
+	margin-right: 50px;
 }
 .menu-atletas-box{
 	text-align: center;
@@ -208,4 +212,7 @@ nav a:hover{
 	text-align: center;
 	font-family: fontpalab;
 	font-size: 15pt;
+}
+.delAtletaSelect{
+	width: 200px;
 }

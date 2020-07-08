@@ -25,14 +25,14 @@
 		
 
 		<?php
-		include 'addatleta.html';
+		include 'addatleta.php';
 		?>
 		
 		<?php
-		include 'editatleta.html';
+		include 'editatletaww.php';
 		?>
 		<?php
-		include 'delatleta.html';
+		include 'delatleta.php';
 		?>
 	</content>
 	
