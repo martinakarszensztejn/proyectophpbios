@@ -9,17 +9,20 @@ if (!$conn) {
 }
 else{
 
-	$addAtletaNombre = utf8_decode($_POST['nombreatleta']);
-	echo "$addAtletaNombre";
-	$addAtletaFecha = $_POST['fchanacatleta'];
-	echo "$addAtletaFecha";
-	$addAtletaNacion = $_POST['nacionalidad'];
-	echo "$addAtletaNacion";
-	$addAtletaDisciplina = utf8_decode($_POST['disciplina']);
-	echo "$addAtletaDisciplina";
-	$idSel = substr("$addAtletaDisciplina", 4,2);
-	echo "$idSel";
-	$sqlsent = "INSERT INTO `proyectophpbios`.`atleta` (`NombreAtleta`, `FechaNacAtleta`, `OrigenAtleta`, `idDisciplina`) VALUES ('$addAtletaNombre', '$addAtletaFecha', '$addAtletaNacion', '$idSel');";
+	$editAtletaID = utf8_decode($_POST['idAtletaEdit']);
+	$recorteAtletaID = substr("$editAtletaID", 4,2);
+	$editAtletaNombre = utf8_decode($_POST['nombreatleta']);
+	$editAtletaNomEncoded = utf8_encode($editAtletaNombre);
+	$editAtletaFecha = $_POST['fchanacatleta'];
+	
+	$editAtletaNacion = $_POST['nacionalidad'];
+	
+	$editAtletaDisciplina = utf8_decode($_POST['disciplina']);
+	
+	$idSel = substr("$editAtletaDisciplina", 4,2);
+	
+	$sqlsent = "UPDATE `proyectophpbios`.`atleta` SET `NombreAtleta` = '$editAtletaNomEncoded', `FechaNacAtleta` = '$editAtletaFecha', `OrigenAtleta` = '$editAtletaNacion', `idDisciplina` = '$idSel' WHERE (`idAtleta` = '$recorteAtletaID');";
+	echo "$sqlsent";
 	$infosql = mysqli_query($conn,$sqlsent);
 	if($infosql == true){
 	header("Location:atletas.php");

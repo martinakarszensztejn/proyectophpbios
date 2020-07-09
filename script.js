@@ -88,20 +88,45 @@ function addAtletas(){
 
 }
 function editAtletaww(){
-	window.alert("1a1aw");
+	
 	
 	if(document.getElementById('nombreatletaeditww').value.length<=0 || document.getElementById('nombreatletaeditww').value.length>=256 ){
 		window.alert('El texto ingresado es inválido.');
-		window.alert("1a1a");
+		
 		
 	}else if(document.getElementById('fchanacatletaeditww').value.length==0){
 		window.alert('La fecha ingresada es inválida.');
-		window.alert("2222");
+		
 	}else{
 		document.getElementById('formeditatletaww').submit();
-		window.alert("333");
+		
 	}
-	window.alert("no entro");
+	
 
+}
+function showConsulta(seleccion){
+
+	
+	if (seleccion==1) {
+		if (document.getElementById('consultaAtletasContainer').style.display != 'block') {
+			document.getElementById('consultaAtletasContainer').style.display = 'block';
+			
+			document.getElementById('consultaDisciplinasContainer').style.display = 'none';
+		}else{
+			document.getElementById('consultaAtletasContainer').style.display = 'none';
+		}
+	}else if (seleccion==2){
+		if (document.getElementById('consultaDisciplinasContainer').style.display != 'block') {
+			document.getElementById('consultaDisciplinasContainer').style.display = 'block';
+			
+			document.getElementById('consultaAtletasContainer').style.display = 'none';
+		}else{
+			document.getElementById('consultaDisciplinasContainer').style.display = 'none';
+		}
+	}
+
+	
+
+	
 }
 

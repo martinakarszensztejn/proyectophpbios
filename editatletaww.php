@@ -25,13 +25,15 @@
 							array_push($listaDeDiscID, $row["idDisciplina"]);
 						}
 						
-						$sqlsent2 = "SELECT idAtleta FROM proyectophpbios.atleta ORDER BY idAtleta; ";
+						$sqlsent2 = "SELECT idAtleta,NombreAtleta FROM proyectophpbios.atleta ORDER BY idAtleta; ";
 						$resultado2 = mysqli_query($conn,$sqlsent2);
 
 						$listaDeAtletasID = array();
+						$listaDeAtletasNom = array();
 
 						while ($row = mysqli_fetch_array($resultado2)) {
 							array_push($listaDeAtletasID, $row["idAtleta"]);
+							array_push($listaDeAtletasNom, $row["NombreAtleta"]);
 							
 						}
 
@@ -43,10 +45,10 @@
 			</td>
 			<td>
 
-				<select name="idAtletaEdit">
+				<select name="idAtletaEdit" class="idAtletaEditSelect">
 					<?php
 						for ($i=0; $i < count($listaDeAtletasID); $i++) { 
-							echo("<option>$listaDeAtletasID[$i]</option>");
+							echo("<option>N°: $listaDeAtletasID[$i] - $listaDeAtletasNom[$i]</option>");
 						}
 					?>
 				</select>
