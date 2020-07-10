@@ -3,7 +3,7 @@
 	<table>
 		<form id="formeditatletaww" action="proeditatletaww.php" method="post">
 		<tr>
-			<th colspan="2" class="addatleta-tit-sec"><h2>Edit Atleta</h2></th>
+			<th colspan="2" class="addatleta-tit-sec"><h2>Editar Atleta</h2></th>
 		</tr>
 		<tr>
 			<?php

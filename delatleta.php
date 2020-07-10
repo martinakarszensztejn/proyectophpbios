@@ -3,7 +3,7 @@
 	<table>
 		<form id="formdelatleta" action="prodelatleta.php" method="post">
 		<tr>
-			<th colspan="2" class="addatleta-tit-sec"><h2>Edit Atleta</h2></th>
+			<th colspan="2" class="addatleta-tit-sec"><h2>Borrar Atleta</h2></th>
 		</tr>
 		<tr>
 			<?php
