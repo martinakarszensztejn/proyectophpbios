@@ -3,13 +3,19 @@
 	<table class="ctaDisTable">
 		<h2 class="ctaDisTit">atletas</h2>
 		<tr>
-			<th class="celdaimpar">N° Competidor</th>
-			<th class="celdaimpar">Nombre</th>
-			<th class="celdaimpar">Edad</th>
-			<th class="celdaimpar">Nacionalidad</th>
-			<th class="celdaimpar">Disciplina</th>
+			<th class="celdaimpar">N° Competidor <img onclick="ordenar(1)" src="images/consulta/arrow.png" id="arrowID" class="flechaOrdenar"></th>
+
+			<th class="celdaimpar">Nombre <img onclick="ordenar(2)" src="images/consulta/arrowup.png" id="arrowNom" class="flechaOrdenar"></th>
+
+			<th class="celdaimpar">Edad <img onclick="ordenar(3)" src="images/consulta/arrowup.png" id="arrowEdad" class="flechaOrdenar"></th>
+
+			<th class="celdaimpar">Nacionalidad <img onclick="ordenar(4)" src="images/consulta/arrowup.png" id="arrowNac" class="flechaOrdenar"></th>
+
+			<th class="celdaimpar">Disciplina <img onclick="ordenar(5)" src="images/consulta/arrowup.png" id="arrowDis" class="flechaOrdenar"></th>
+
 		</tr>
 		<?php
+				
 			$servername = 'localhost';
 			$username = 'root';
 			$password = 'password';
@@ -19,12 +25,65 @@
 				die('No se pudo conectar al servidor.');
 			}
 			else{
+			
+			$sqlsent2 = "SELECT * FROM proyectophpbios.atleta ORDER BY idAtleta; ";
+			if (isset($_GET['or'])) {
 				
-				
+			
+				if ($_GET['or']==1) {
+					?>
+					<script type="text/javascript">
+						showArrowDown();
+						showConsulta(1);
+						
+					</script>
+					<?php
+
+					$sqlsent2 = "SELECT * FROM proyectophpbios.atleta ORDER BY idAtleta; ";
+
+				}else if ($_GET['or']==2) {
+					?>
+					<script type="text/javascript">
+						showArrowDown();
+						showConsulta(1);
+						
+					</script>
+					<?php
+					$sqlsent2 = "SELECT * FROM proyectophpbios.atleta ORDER BY NombreAtleta; ";
+				}else if ($_GET['or']==3) {
+					?>
+					<script type="text/javascript">
+						showArrowDown();
+						showConsulta(1);
+						
+					</script>
+					<?php
+					$sqlsent2 = "SELECT * FROM proyectophpbios.atleta ORDER BY FechaNacAtleta DESC ; ";
+				}else if ($_GET['or']==4) {
+					?>
+					<script type="text/javascript">
+						showArrowDown();
+						showConsulta(1);
+						
+					</script>
+					<?php
+					$sqlsent2 = "SELECT * FROM proyectophpbios.atleta ORDER BY OrigenAtleta; ";
+				}else if ($_GET['or']==5) {
+
+					?>
+					<script type="text/javascript">
+						showArrowDown();
+						showConsulta(1);
+						
+					</script>
+					<?php
+					$sqlsent2 = "SELECT atleta.*, disciplina.NombreDisciplina FROM atleta INNER JOIN disciplina ON atleta.idDisciplina=disciplina.idDisciplina ORDER BY disciplina.NombreDisciplina;";
+				}
+			}
 				
 
 
-				$sqlsent2 = "SELECT * FROM proyectophpbios.atleta ORDER BY idAtleta; ";
+				
 				$resultado2 = mysqli_query($conn,$sqlsent2);
 				$listaDeAtID = array();
 				$listaDeAtNom = array();
@@ -64,11 +123,11 @@
 					if ($i%2==1) {
 						echo("
 								<tr>
-								<th class=\"celdaimpar\">$listaDeAtID[$i]</th>
-								<th class=\"celdaimpar\">$listaDeAtNom[$i]</th>
-								<th class=\"celdaimpar\">$edadactual[$i]</th>
-								<th class=\"celdaimpar\">$listaDeAtNac[$i]</th>
-								<th class=\"celdaimpar\">$listaDeDiscPorAtleta[$i]</th>
+								<td class=\"celdaimpar\">$listaDeAtID[$i]</td>
+								<td class=\"celdaimpar\">$listaDeAtNom[$i]</td>
+								<td class=\"celdaimpar\">$edadactual[$i]</td>
+								<td class=\"celdaimpar\">$listaDeAtNac[$i]</td>
+								<td class=\"celdaimpar\">$listaDeDiscPorAtleta[$i]</td>
 								</tr>
 
 
@@ -77,11 +136,11 @@
 					}else{
 						echo("
 								<tr>
-								<th class=\"celdapar\">$listaDeAtID[$i]</th>
-								<th class=\"celdapar\">$listaDeAtNom[$i]</th>
-								<th class=\"celdapar\">$edadactual[$i]</th>
-								<th class=\"celdapar\">$listaDeAtNac[$i]</th>
-								<th class=\"celdapar\">$listaDeDiscPorAtleta[$i]</th>
+								<td class=\"celdapar\">$listaDeAtID[$i]</td>
+								<td class=\"celdapar\">$listaDeAtNom[$i]</td>
+								<td class=\"celdapar\">$edadactual[$i]</td>
+								<td class=\"celdapar\">$listaDeAtNac[$i]</td>
+								<td class=\"celdapar\">$listaDeDiscPorAtleta[$i]</td>
 								</tr>
 
 

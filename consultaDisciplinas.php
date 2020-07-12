@@ -2,7 +2,8 @@
 	<table class="ctaDisTable">
 		<h2 class="ctaDisTit">disciplinas</h2>
 		<tr>
-			<th class="celdaimpar">Identificador</th><th class="celdaimpar">Nombre</th>
+			<th class="celdaimpar">Identificador <img onclick="ordenarDis(1)" src="images/consulta/arrow.png" id="arrowDisID" class="flechaOrdenar"></th>
+			<th class="celdaimpar">Nombre <img onclick="ordenarDis(2)" src="images/consulta/arrowup.png" id="arrowDisNom" class="flechaOrdenar"></th>
 		</tr>
 		<?php
 			$servername = 'localhost';
@@ -15,6 +16,29 @@
 			}
 			else{
 				$sqlsent = "SELECT * FROM proyectophpbios.disciplina ORDER BY idDisciplina; ";
+				if (isset($_GET['ddmarta'])) {
+					if ($_GET['ddmarta']==1) {
+					?>
+					<script type="text/javascript">
+						showArrowDown();
+						showConsulta(2);
+						
+					</script>
+					<?php
+
+					$sqlsent = "SELECT * FROM proyectophpbios.disciplina ORDER BY idDisciplina; ";
+
+				}else if ($_GET['ddmarta']==2) {
+					?>
+					<script type="text/javascript">
+						showArrowDown();
+						showConsulta(2);
+						
+					</script>
+					<?php
+					$sqlsent = "SELECT * FROM proyectophpbios.disciplina ORDER BY NombreDisciplina;";
+				}
+				}
 				$resultado = mysqli_query($conn,$sqlsent);
 				$listaDeDiscNom = array();
 				$listaDeDiscID = array();

@@ -129,4 +129,153 @@ function showConsulta(seleccion){
 
 	
 }
+function showArrowDown(){
+	
+	const urlParams = new URLSearchParams(window.location.search);
+	const myParam = urlParams.get('myParam');
+	function getParameterByName(name, url) {
+	    if (!url) url = window.location.href;
+	    name = name.replace(/[\[\]]/g, '\\$&');
+	    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+	        results = regex.exec(url);
+	    if (!results) return null;
+	    if (!results[2]) return '';
+	    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+	}
+	var or = getParameterByName('or');
+	var ddmarta = getParameterByName('ddmarta');
+
+	if (or==1) {
+		document.getElementById('arrowID').src = 'images/consulta/arrow.png';
+		document.getElementById('arrowNom').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowDis').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowNac').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowEdad').src = 'images/consulta/arrowup.png';
+		
+	}else if(or==2){
+		document.getElementById('arrowID').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowNom').src = 'images/consulta/arrow.png';
+		document.getElementById('arrowEdad').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowNac').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowDis').src = 'images/consulta/arrowup.png';
+	}else if(or==3){
+		document.getElementById('arrowID').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowNom').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowEdad').src = 'images/consulta/arrow.png';
+		document.getElementById('arrowNac').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowDis').src = 'images/consulta/arrowup.png';
+	}else if(or==4){
+		document.getElementById('arrowID').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowNom').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowEdad').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowNac').src = 'images/consulta/arrow.png';
+		document.getElementById('arrowDis').src = 'images/consulta/arrowup.png';
+	}else if(or==5){
+		document.getElementById('arrowID').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowNom').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowEdad').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowNac').src = 'images/consulta/arrowup.png';
+		document.getElementById('arrowDis').src = 'images/consulta/arrow.png';
+	}
+
+	if(ddmarta==1){
+		document.getElementById('arrowDisID').src = 'images/consulta/arrow.png';
+		document.getElementById('arrowDisNom').src = 'images/consulta/arrowup.png';
+	}else if(ddmarta==2){
+		document.getElementById('arrowDisNom').src = 'images/consulta/arrow.png';
+		document.getElementById('arrowDisID').src = 'images/consulta/arrowup.png';
+	}
+}
+function ordenar(opc){
+	
+	
+	url = window.location.href;
+	var urlfinal = "";
+	if (!url.includes("or",3)) {
+		if (!url.includes("?",3)){
+			url = url.concat("?");
+		}
+		
+		url=url.concat("&");
+		
+		urlfinal = url.concat("or=");
+		urlfinal = urlfinal.concat(opc);
+		
+	
+
+	}else{
+		var pedazo = "or=";
+		if (url.includes("or=1",3)) {
+			pedazo=pedazo.concat(opc);
+			urlfinal = url.replace("or=1",pedazo)
+		}else if (url.includes("or=2",3)) {
+			pedazo=pedazo.concat(opc);
+			urlfinal = url.replace("or=2",pedazo)
+		}else if (url.includes("or=3",3)) {
+			pedazo=pedazo.concat(opc);
+			urlfinal = url.replace("or=3",pedazo)
+		}else if (url.includes("or=4",3)) {
+			pedazo=pedazo.concat(opc);
+			urlfinal = url.replace("or=4",pedazo)
+		}else if (url.includes("or=5",3)) {
+			pedazo=pedazo.concat(opc);
+			urlfinal = url.replace("or=5",pedazo)
+		}
+
+		
+	}
+	if (urlfinal.includes("&ddmarta=1",3)) {
+			urlfinal=urlfinal.replace("&ddmarta=1","");
+		}else if (urlfinal.includes("&ddmarta=2",3)) {
+			urlfinal=urlfinal.replace("&ddmarta=2","");
+		}
+	window.location.href = urlfinal;
+	
+
+}
+function ordenarDis(opc){
+	
+	
+	url = window.location.href;
+	var urlfinal = "";
+	if (!url.includes("ddmarta",3)) {
+		if (!url.includes("?",3)){
+			url = url.concat("?");
+		}
+		
+		url=url.concat("&");
+		
+		urlfinal = url.concat("ddmarta=");
+		urlfinal = urlfinal.concat(opc);
+		
+	
+
+	}else{
+		var pedazo = "ddmarta=";
+		if (url.includes("ddmarta=1",3)) {
+			pedazo=pedazo.concat(opc);
+			urlfinal = url.replace("ddmarta=1",pedazo)
+		}else if (url.includes("ddmarta=2",3)) {
+			pedazo=pedazo.concat(opc);
+			urlfinal = url.replace("ddmarta=2",pedazo)
+		}
+		
+	}
+	if (urlfinal.includes("&or=1",3)) {
+			urlfinal=urlfinal.replace("&or=1","");
+		}else if (urlfinal.includes("&or=2",3)) {
+			urlfinal=urlfinal.replace("&or=2","");
+		}else if (urlfinal.includes("&or=3",3)) {
+			urlfinal=urlfinal.replace("&or=3","");
+		}else if (urlfinal.includes("&or=4",3)) {
+			urlfinal=urlfinal.replace("&or=4","");
+		}else if (urlfinal.includes("&or=5",3)) {
+			urlfinal=urlfinal.replace("&or=5","");
+		}
+	window.location.href = urlfinal;
+	
+	
+
+}
+
 

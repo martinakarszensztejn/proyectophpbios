@@ -74,7 +74,7 @@
 		</tr>
 		<tr>
 			<td>
-				<label for="nacionalidad">peepee Corregida:<sup>*</sup></label>
+				<label for="nacionalidad">Nacionalidad Corregida:<sup>*</sup></label>
 			</td>
 			<td>
 				<select name="nacionalidad">
