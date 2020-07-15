@@ -278,4 +278,11 @@ function ordenarDis(opc){
 
 }
 
+function showFiltroBox(){
+	if (document.getElementById('filtrosBox').style.display == "inline-block") {
+		document.getElementById('filtrosBox').style.display = "none";
+	}else{
+		document.getElementById('filtrosBox').style.display = "inline-block";
+	}
+}
 

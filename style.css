@@ -107,7 +107,6 @@ nav a{
 	display: inline;
 	width: 300px;
 	height: 280px;
-	margin-left: 170px;
 	margin-top: 69px;
 	opacity: 0.35;
 }
@@ -221,7 +220,7 @@ nav a{
 	text-align: center;
 	width: 100%;
 	margin-top: 70px;
-	margin-bottom: 100px;
+	margin-bottom: 60px;
 }
 .btn-menu-consultas2,.btn-menu-consultas1{
 	font-family: fontpalab;
@@ -262,6 +261,7 @@ nav a{
 	display: inline-block;
 	margin-bottom: 50px;
 	border-collapse: collapse;
+
 	
 
 
@@ -285,13 +285,52 @@ nav a{
 	
 }
 .ctaDisTit{
-	margin-top: -55px;
 	font-family: fontpalace;
 	font-size: 55pt;
 	letter-spacing: 3px;
+	display: inline;
 }
 .flechaOrdenar{
 	width: 17px;
 }
+.iconConsulta{
+	width: 50px;
+	display: inline;
+	margin-left: 20px;
+	cursor: pointer;
+	
+}
+.boxTableDis{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	margin-top: 40px;
 
+}
+.filtrosBox{
+	z-index: 1;
+	position: absolute;
+	display: block;
+	background-color: lightgray;
+	border-radius: 20px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	top: 630px;
+	left: 790px;
+	display: none;
 
+}
+.formFiltros{
+	padding: 25px;
+}
+.filtrosBox td{
+	text-align: right;
+}
+.filtrosBox select{
+	width: 120px;
+	overflow: hidden;
+}
+.filtrosBox input[type=number]{
+	width: 112px;
+}
