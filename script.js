@@ -285,4 +285,26 @@ function showFiltroBox(){
 		document.getElementById('filtrosBox').style.display = "inline-block";
 	}
 }
+function activateInput(){
+	
 
+	if (document.getElementById('checkNac').checked == true) {
+		
+		document.getElementById('nacionalidadFiltro').disabled = false;
+	}else{
+		document.getElementById('nacionalidadFiltro').disabled = true;
+	}
+
+	if (document.getElementById('checkDis').checked == true) {
+		
+		document.getElementById('disciplinaFiltro').disabled = false;
+	}else{
+		document.getElementById('disciplinaFiltro').disabled = true;
+	}
+}
+function cleanFiltros(){
+	document.getElementById('checkDis').checked = false;
+	document.getElementById('checkNac').checked = false;
+	window.location.href = "consultas.php?verAtletas=1";
+	
+}
