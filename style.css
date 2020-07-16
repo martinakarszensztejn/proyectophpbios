@@ -22,6 +22,10 @@
   font-family: fontpalace;
   src: url(Fonts/palace.ttf);
 }
+@font-face {
+  font-family: literalreg;
+  src: url(Fonts/literalreg.otf);
+}
 body{
 	background-color: #abb1d9;
 }
@@ -281,7 +285,7 @@ nav a{
 	padding: 4px;
 	width: 150px;
 	overflow: hidden;
-
+	font-family: literalreg;
 	
 }
 .ctaDisTit{
@@ -292,6 +296,7 @@ nav a{
 }
 .flechaOrdenar{
 	width: 17px;
+	cursor: pointer;
 }
 .iconConsulta{
 	width: 50px;
@@ -326,6 +331,7 @@ nav a{
 }
 .filtrosBox td{
 	text-align: right;
+	font-family: literalreg;
 }
 .filtrosBox select{
 	width: 120px;
