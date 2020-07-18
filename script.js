@@ -205,22 +205,38 @@ function ordenar(opc){
 
 	}else{
 		var pedazo = "or=";
-		if (url.includes("or=1",3)) {
+		if (url.includes("or=10",3)) {
 			pedazo=pedazo.concat(opc);
-			urlfinal = url.replace("or=1",pedazo)
+			urlfinal = url.replace("or=10",pedazo);
 		}else if (url.includes("or=2",3)) {
 			pedazo=pedazo.concat(opc);
-			urlfinal = url.replace("or=2",pedazo)
+			urlfinal = url.replace("or=2",pedazo);
 		}else if (url.includes("or=3",3)) {
 			pedazo=pedazo.concat(opc);
-			urlfinal = url.replace("or=3",pedazo)
+			urlfinal = url.replace("or=3",pedazo);
 		}else if (url.includes("or=4",3)) {
 			pedazo=pedazo.concat(opc);
-			urlfinal = url.replace("or=4",pedazo)
+			urlfinal = url.replace("or=4",pedazo);
 		}else if (url.includes("or=5",3)) {
 			pedazo=pedazo.concat(opc);
-			urlfinal = url.replace("or=5",pedazo)
+			urlfinal = url.replace("or=5",pedazo);
+		}else if (url.includes("or=6",3)) {
+			pedazo=pedazo.concat(opc);
+			urlfinal = url.replace("or=6",pedazo);
+		}else if (url.includes("or=7",3)) {
+			pedazo=pedazo.concat(opc);
+			urlfinal = url.replace("or=7",pedazo);
+		}else if (url.includes("or=8",3)) {
+			pedazo=pedazo.concat(opc);
+			urlfinal = url.replace("or=8",pedazo);
+		}else if (url.includes("or=9",3)) {
+			pedazo=pedazo.concat(opc);
+			urlfinal = url.replace("or=9",pedazo);
+		}else if (url.includes("or=1",3)) {
+			pedazo=pedazo.concat(opc);
+			urlfinal = url.replace("or=1",pedazo)
 		}
+
 
 		
 	}
@@ -271,6 +287,16 @@ function ordenarDis(opc){
 			urlfinal=urlfinal.replace("&or=4","");
 		}else if (urlfinal.includes("&or=5",3)) {
 			urlfinal=urlfinal.replace("&or=5","");
+		}else if (urlfinal.includes("&or=6",3)) {
+			urlfinal=urlfinal.replace("&or=6","");
+		}else if (urlfinal.includes("&or=7",3)) {
+			urlfinal=urlfinal.replace("&or=7","");
+		}else if (urlfinal.includes("&or=8",3)) {
+			urlfinal=urlfinal.replace("&or=8","");
+		}else if (urlfinal.includes("&or=9",3)) {
+			urlfinal=urlfinal.replace("&or=9","");
+		}else if (urlfinal.includes("&or=10",3)) {
+			urlfinal=urlfinal.replace("&or=10","");
 		}
 	window.location.href = urlfinal;
 	
@@ -307,4 +333,16 @@ function cleanFiltros(){
 	document.getElementById('checkNac').checked = false;
 	window.location.href = "consultas.php?verAtletas=1";
 	
+}
+function selectIDtoEdit(){
+	
+	
+	var url = "proauxeditatleta.php?id2edit=";
+	url= url.concat(document.getElementById('id2editAtleta').value);
+	window.location.href = url;
+}
+function unselectEditAtleta(){
+	window.location.href = "atletas.php";
+	
+	showAtleta(editatleta);
 }

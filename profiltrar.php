@@ -45,6 +45,7 @@ else{
 		$cantFiltros++;
 		
 	}else{
+
 		$sqlsent = $sqlsent.";";
 	}
 
@@ -79,9 +80,9 @@ else{
 		for ($i=0; $i < count($listaDeAtID); $i++) { 
 			echo "$listaDeAtID[$i] - ";
 		}
-		echo $sqlsent;
-		 $_SESSION['sqlsentencia'] = $sqlsent;
-		echo $_SESSION['sqlsentencia'];
+		 $sqlsentsinsemicolon = str_replace(";", "", $sqlsent);
+		 $_SESSION['sqlsentencia2'] = $sqlsentsinsemicolon;
+		
 		 $_SESSION['filtrado'] = 1;
 		 $_SESSION['filR1AtID'] = $listaDeAtID;
 		 $_SESSION['filR2AtNom'] = $listaDeAtNom;

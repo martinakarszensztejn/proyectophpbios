@@ -30,6 +30,7 @@
 								
 					</script>
 				<?php
+				$_SESSION['filtrado']=0;
 				}
 			}
 			
@@ -72,18 +73,7 @@
 	<div class="boxTableDis">
 		<table class="ctaDisTable">
 			
-			<tr>
-				<th class="celdaimpar">N° Competidor <img onclick="ordenar(1)" src="images/consulta/arrow.png" id="arrowID" class="flechaOrdenar"></th>
-
-				<th class="celdaimpar">Nombre <img onclick="ordenar(2)" src="images/consulta/arrowup.png" id="arrowNom" class="flechaOrdenar"></th>
-
-				<th class="celdaimpar">Edad <img onclick="ordenar(3)" src="images/consulta/arrowup.png" id="arrowEdad" class="flechaOrdenar"></th>
-
-				<th class="celdaimpar">Nacionalidad <img onclick="ordenar(4)" src="images/consulta/arrowup.png" id="arrowNac" class="flechaOrdenar"></th>
-
-				<th class="celdaimpar">Disciplina <img onclick="ordenar(5)" src="images/consulta/arrowup.png" id="arrowDis" class="flechaOrdenar"></th>
-
-			</tr>
+			
 			<?php
 					
 				$servername = 'localhost';
@@ -95,54 +85,212 @@
 					die('No se pudo conectar al servidor.');
 				}
 				else{
-					if (!isset($_SESSION['filtrado'])) {
+					if (!isset($_SESSION['filtrado']) || $_SESSION['filtrado']==0) {
 						$_SESSION['filtrado']=0;
-					
+						?>
+						<tr>
+							<th class="celdaimpar">N° Competidor <img onclick="ordenar(1)" src="images/consulta/arrow.png" id="arrowID" class="flechaOrdenar"></th>
+
+							<th class="celdaimpar">Nombre <img onclick="ordenar(2)" src="images/consulta/arrowup.png" id="arrowNom" class="flechaOrdenar"></th>
+
+							<th class="celdaimpar">Edad <img onclick="ordenar(3)" src="images/consulta/arrowup.png" id="arrowEdad" class="flechaOrdenar"></th>
+
+							<th class="celdaimpar">Nacionalidad <img onclick="ordenar(4)" src="images/consulta/arrowup.png" id="arrowNac" class="flechaOrdenar"></th>
+
+							<th class="celdaimpar">Disciplina <img onclick="ordenar(5)" src="images/consulta/arrowup.png" id="arrowDis" class="flechaOrdenar"></th>
+
+						</tr>
+						<?php
 					}
 					if ($_SESSION['filtrado']==1) {
+
+						
 						?>
 							<script type="text/javascript">
 							
 								showConsulta(1);
 								
 							</script>
+
+							<tr>
+								<th class="celdaimpar">N° Competidor <img onclick="ordenar(6)" src="images/consulta/arrow.png" id="arrowID" class="flechaOrdenar"></th>
+
+								<th class="celdaimpar">Nombre <img onclick="ordenar(7)" src="images/consulta/arrowup.png" id="arrowNom" class="flechaOrdenar"></th>
+
+								<th class="celdaimpar">Edad <img onclick="ordenar(8)" src="images/consulta/arrowup.png" id="arrowEdad" class="flechaOrdenar"></th>
+
+								<th class="celdaimpar">Nacionalidad <img onclick="ordenar(9)" src="images/consulta/arrowup.png" id="arrowNac" class="flechaOrdenar"></th>
+
+								<th class="celdaimpar">Disciplina <img onclick="ordenar(10)" src="images/consulta/arrowup.png" id="arrowDis" class="flechaOrdenar"></th>
+
+							</tr>
+							
 						<?php
+
+						
 						$listaDeAtIDSession = $_SESSION['filR1AtID'];
 						$listaDeAtNomSession = $_SESSION['filR2AtNom'];
 						$listaDeAtNacSession = $_SESSION['filR3AtNac'];
 						$edadactualSession = $_SESSION['filR4AtEdad'];
 						$listaDeDisNomSession = $_SESSION['filR5DisNom'];
-						
-						for ($i=0; $i < count($listaDeAtIDSession); $i++) { 	
-							if ($i%2==1) {
-								echo("
-									<tr>
-									<td class=\"celdaimpar\">$listaDeAtIDSession[$i]</td>
-									<td class=\"celdaimpar\">$listaDeAtNomSession[$i]</td>
-									<td class=\"celdaimpar\">$edadactualSession[$i]</td>
-									<td class=\"celdaimpar\">$listaDeAtNacSession[$i]</td>
-									<td class=\"celdaimpar\">$listaDeDisNomSession[$i]</td>
-									</tr>
-
-
-
-								");
-							}else{
-								echo("
-									<tr>
-									<td class=\"celdapar\">$listaDeAtIDSession[$i]</td>
-									<td class=\"celdapar\">$listaDeAtNomSession[$i]</td>
-									<td class=\"celdapar\">$edadactualSession[$i]</td>
-									<td class=\"celdapar\">$listaDeAtNacSession[$i]</td>
-									<td class=\"celdapar\">$listaDeDisNomSession[$i]</td>
-									</tr>
-
-
-
-								");
-							}
+						$sentenciaSinOrdenar = "";
+						if (isset($_SESSION['sqlsentencia2'])) {
+							$sentenciaSinOrdenar = $_SESSION['sqlsentencia2'];
 						}
-						$_SESSION['filtrado']=0;
+						$sentOrdenada="";
+						
+
+						if (isset($_GET['or'])) {
+							
+						
+							?>
+							<script type="text/javascript">
+								
+								
+								showConsulta(1);
+							</script>
+							<?php
+							
+						
+							if ($_GET['or']==6) {
+								?>
+								<script type="text/javascript">
+									showArrowDown();
+									showConsulta(1);
+									
+								</script>
+								<?php
+
+								$sentOrdenada = $sentenciaSinOrdenar."ORDER BY idAtleta;";
+
+							}else if ($_GET['or']==7) {
+								?>
+								<script type="text/javascript">
+									showArrowDown();
+									showConsulta(1);
+									
+								</script>
+								<?php
+								$sentOrdenada = $sentenciaSinOrdenar."ORDER BY NombreAtleta;";
+							}else if ($_GET['or']==8) {
+								?>
+								<script type="text/javascript">
+									showArrowDown();
+									showConsulta(1);
+									
+								</script>
+								<?php
+							
+								$sentOrdenada = $sentenciaSinOrdenar."ORDER BY FechaNacAtleta DESC;";
+							}else if ($_GET['or']==9) {
+								?>
+								<script type="text/javascript">
+									showArrowDown();
+									showConsulta(1);
+									
+								</script>
+								<?php
+								$sentOrdenada = $sentenciaSinOrdenar."ORDER BY OrigenAtleta;";
+							}else if ($_GET['or']==10) {
+
+								?>
+								<script type="text/javascript">
+									showArrowDown();
+									showConsulta(1);
+									
+								</script>
+								<?php
+								$sentOrdenada = $sentenciaSinOrdenar."ORDER BY disciplina.NombreDisciplina;";
+								
+							}
+				
+							$resultado9 = mysqli_query($conn,$sentOrdenada);
+							$listaDeAtID9 = array();
+							$listaDeAtNom9 = array();
+							$listaDeAtFcha9 = array();
+							$listaDeAtNac9 = array();
+							$listaDeDisNom9 = array();
+							$edadactual9 = array();
+							while ($row3 = mysqli_fetch_array($resultado9)) {
+								
+								array_push($listaDeAtID9, $row3["idAtleta"]);
+								array_push($listaDeAtNom9, $row3["NombreAtleta"]);
+								array_push($listaDeAtFcha9, $row3["FechaNacAtleta"]);
+								array_push($listaDeAtNac9, $row3["OrigenAtleta"]);
+								array_push($listaDeDisNom9, $row3["NombreDisciplina"]);
+							}
+							for ($i=0; $i < count($listaDeAtID9); $i++) { 
+								$sqlsentdia = "select DATEDIFF(CURDATE(),'$listaDeAtFcha9[$i]' ) / 365.25 as edadactual;";
+								$resultadodia = mysqli_query($conn,$sqlsentdia);
+								
+							
+								while ($row = mysqli_fetch_array($resultadodia)) {
+									array_push($edadactual9, floor($row["edadactual"]));
+								}
+							}
+							for ($i=0; $i < count($listaDeAtID9); $i++) { 	
+								if ($i%2==1) {
+									echo("
+											<tr>
+											<td class=\"celdaimpar\">$listaDeAtID9[$i]</td>
+											<td class=\"celdaimpar\">$listaDeAtNom9[$i]</td>
+											<td class=\"celdaimpar\">$edadactual9[$i]</td>
+											<td class=\"celdaimpar\">$listaDeAtNac9[$i]</td>
+											<td class=\"celdaimpar\">$listaDeDisNom9[$i]</td>
+											</tr>
+
+
+
+										");
+								}else{
+									echo("
+											<tr>
+											<td class=\"celdapar\">$listaDeAtID9[$i]</td>
+											<td class=\"celdapar\">$listaDeAtNom9[$i]</td>
+											<td class=\"celdapar\">$edadactual9[$i]</td>
+											<td class=\"celdapar\">$listaDeAtNac9[$i]</td>
+											<td class=\"celdapar\">$listaDeDisNom9[$i]</td>
+											</tr>
+
+
+
+										");
+								}
+							}
+							
+
+						}else{
+							
+							for ($i=0; $i < count($listaDeAtIDSession); $i++) { 	
+								if ($i%2==1) {
+									echo("
+										<tr>
+										<td class=\"celdaimpar\">$listaDeAtIDSession[$i]</td>
+										<td class=\"celdaimpar\">$listaDeAtNomSession[$i]</td>
+										<td class=\"celdaimpar\">$edadactualSession[$i]</td>
+										<td class=\"celdaimpar\">$listaDeAtNacSession[$i]</td>
+										<td class=\"celdaimpar\">$listaDeDisNomSession[$i]</td>
+										</tr>
+
+
+
+									");
+								}else{
+									echo("
+										<tr>
+										<td class=\"celdapar\">$listaDeAtIDSession[$i]</td>
+										<td class=\"celdapar\">$listaDeAtNomSession[$i]</td>
+										<td class=\"celdapar\">$edadactualSession[$i]</td>
+										<td class=\"celdapar\">$listaDeAtNacSession[$i]</td>
+										<td class=\"celdapar\">$listaDeDisNomSession[$i]</td>
+										</tr>
+
+
+
+									");
+								}
+							}
+						}	
 					}else{
 					
 						$sqlsent2 = "SELECT * FROM proyectophpbios.atleta ORDER BY idAtleta; ";
