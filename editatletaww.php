@@ -58,7 +58,7 @@
 					}else{
 						
 						echo("<input type=\"number\" min=\"0\" max=\"9999\" value=\"");
-echo($_SESSION['rec2EditAtID']);echo("\" disabled=\"true\" id=\"id2editAtleta\" name=\"idAtletaEdit\">");
+echo($_SESSION['rec2EditAtID']);echo("\" readonly id=\"id2editAtleta\" name=\"idAtletaEdit\">");
 
 					}
 				?>

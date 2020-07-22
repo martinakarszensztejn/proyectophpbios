@@ -9,8 +9,7 @@ if (!$conn) {
 }
 else{
 
-	$editAtletaID = utf8_decode($_POST['idAtletaEdit']);
-	$recorteAtletaID = substr("$editAtletaID", 4,2);
+	$editAtletaID = $_POST['idAtletaEdit'];
 	$editAtletaNombre = utf8_decode($_POST['nombreatleta']);
 	$editAtletaNomEncoded = utf8_encode($editAtletaNombre);
 	$editAtletaFecha = $_POST['fchanacatleta'];
@@ -18,16 +17,15 @@ else{
 	$editAtletaNacion = $_POST['nacionalidad'];
 	
 	$editAtletaDisciplina = utf8_decode($_POST['disciplina']);
+
 	
 	$idSel = substr("$editAtletaDisciplina", 4,2);
 	
-	$sqlsent = "UPDATE `proyectophpbios`.`atleta` SET `NombreAtleta` = '$editAtletaNomEncoded', `FechaNacAtleta` = '$editAtletaFecha', `OrigenAtleta` = '$editAtletaNacion', `idDisciplina` = '$idSel' WHERE (`idAtleta` = '$recorteAtletaID');";
+	$sqlsent = "UPDATE `proyectophpbios`.`atleta` SET `NombreAtleta` = '$editAtletaNomEncoded', `FechaNacAtleta` = '$editAtletaFecha', `OrigenAtleta` = '$editAtletaNacion', `idDisciplina` = '$idSel' WHERE (`idAtleta` = '$editAtletaID');";
 	echo "$sqlsent";
 	$infosql = mysqli_query($conn,$sqlsent);
 	if($infosql == true){
 	header("Location:atletas.php");
-
-	}else{
 
 	}
 mysqli_close($conn);
