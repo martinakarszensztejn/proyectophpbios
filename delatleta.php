@@ -38,12 +38,14 @@
 			</td>
 			<td>
 
-				<select name="delAtletaSelectField" class="delAtletaSelect">
+				<select name="delAtletaSelectField" size="5" class="delAtletaSelect">
+					
 					<?php
 						for ($i=0; $i < count($listaDeAtletasID); $i++) { 
 							echo("<option>ID: $listaDeAtletasID[$i] - $listaDeAtletasNom[$i]</option>");
 						}
 					?>
+				
 				</select>
 			</td>
 			

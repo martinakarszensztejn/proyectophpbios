@@ -217,8 +217,13 @@ nav a{
 	font-size: 15pt;
 }
 .delAtletaSelect, .idAtletaEditSelect{
-	width: 200px;
+	width: 210px;
 }
+.groupDelAtleta{
+	max-height: 50px;
+	overflow: scroll;
+}
+
 .consultas-menu-box{
 	display: inline-block;
 	text-align: center;
