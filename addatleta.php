@@ -46,7 +46,7 @@
 					<?php
 					$servername = 'localhost';
 					$username = 'root';
-					$password = 'password';
+					$password = '';
 					$dbname = 'proyectophpbios';
 					$conn = mysqli_connect($servername,$username,$password,$dbname);
 					if (!$conn) {
